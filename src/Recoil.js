@@ -21,6 +21,11 @@ export type {
   ResetRecoilState,
 } from './recoil_values/Recoil_selector';
 export type {
+  Parameter,
+  SelectorFamilyOptions,
+} from './recoil_values/Recoil_selectorFamily';
+
+export type {
   RecoilValue,
   RecoilState,
   RecoilValueReadOnly,
@@ -43,6 +48,19 @@ const {DefaultValue} = require('./core/Recoil_Node');
 const {RecoilRoot} = require('./components/Recoil_RecoilRoot.react');
 const {isRecoilValue} = require('./core/Recoil_RecoilValue');
 const selector = require('./recoil_values/Recoil_selector');
+
+const atomFamily = require('./recoil_values/Recoil_atomFamily');
+const constSelector = require('./recoil_values/Recoil_const');
+const errorSelector = require('./recoil_values/Recoil_error');
+const Link = require('./components/Recoil_Link.react');
+const readOnlySelector = require('./recoil_values/Recoil_readOnlySelector');
+const selectorFamily = require('./recoil_values/Recoil_selectorFamily');
+const {
+  noWait,
+  waitForAll,
+  waitForAny,
+  waitForNone,
+} = require('./recoil_values/Recoil_WaitFor');
 
 module.exports = {
   // Types
@@ -73,4 +91,20 @@ module.exports = {
 
   // Other functions
   isRecoilValue,
+
+  // Convenience RecoilValues
+  atomFamily,
+  selectorFamily,
+  constSelector,
+  errorSelector,
+  readOnlySelector,
+
+  // Concurrency Helpers
+  noWait,
+  waitForNone,
+  waitForAny,
+  waitForAll,
+
+  // Components
+  Link_UNSTABLE: Link,
 };
